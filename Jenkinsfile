@@ -4,15 +4,7 @@ pipeline {
         REPO_URL = 'https://github.com/maulin-architect/Maulin_jenkins.git'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    // Checkout the correct branch based on trigger
-                    checkout scm
-                }
-            }
-        }
-
+        
         stage('Build') {
             steps {
                 echo ' Building ...'
