@@ -36,8 +36,7 @@ pipeline {
         }
 
         stage('Deploy to Staging') {
-            git branch develop
-            git checkout develop
+            
             when {
                 branch 'develop'
             }
