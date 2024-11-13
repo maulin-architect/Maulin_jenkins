@@ -66,19 +66,12 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            cleanWs() // Clean workspace after build
-        }
+   post {
         success {
-            mail to: 'maulin.architect@gmail.com',
-                 subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "The build was successful!"
+            echo 'Pipeline completed successfully!'
         }
         failure {
-            mail to: 'maulin.architect@gmail.com',
-                 subject: "Build Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "The build failed."
+            echo 'Pipeline failed!'
         }
     }
 }
