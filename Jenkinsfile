@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        REPO_URL = 'https://github.com/your-org/your-repo.git'
+        REPO_URL = 'https://github.com/maulin-architect/Maulin_jenkins.git'
     }
     stages {
         stage('Checkout') {
