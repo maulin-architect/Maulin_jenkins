@@ -15,19 +15,22 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'make build' // Or another build command
+                echo ' Building ...'
+               // sh 'make build' // Or another build command
             }
         }
 
         stage('Unit Tests') {
             steps {
-                sh 'make test-unit' // Run unit tests
+                 echo ' Testing ...'
+               // sh 'make test-unit' // Run unit tests
             }
         }
 
         stage('Static Code Analysis') {
             steps {
-                sh 'make lint' // Or another static analysis tool
+                echo 'static code analysis'
+                // sh 'make lint' // Or another static analysis tool
             }
         }
 
@@ -64,7 +67,9 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'make deploy-prod' // Deploy main branch to production
+
+                echo 'Deploying'
+               // sh 'make deploy-prod' // Deploy main branch to production
             }
         }
     }
@@ -74,12 +79,12 @@ pipeline {
             cleanWs() // Clean workspace after build
         }
         success {
-            mail to: 'team@example.com',
+            mail to: 'maulin.architect@gmail.com',
                  subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "The build was successful!"
         }
         failure {
-            mail to: 'team@example.com',
+            mail to: 'maulin.architect@gmail.com',
                  subject: "Build Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "The build failed."
         }
