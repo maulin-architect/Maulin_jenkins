@@ -61,8 +61,9 @@ pipeline {
                 branch pattern: "release/.*", comparator: "REGEXP"
             }
             steps {
-                sh 'make build-release' // Build the release artifact
-                archiveArtifacts artifacts: 'build/*.jar', fingerprint: true
+                  echo ' in Release branch creating Release Artifact'
+                // sh 'make build-release' // Build the release artifact
+               // archiveArtifacts artifacts: 'build/*.jar', fingerprint: true
             }
         }
 
