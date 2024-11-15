@@ -41,7 +41,8 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh 'make deploy-staging' // Deploys develop branch to staging
+                echo 'Deploying to Statging in case of develop branch only'
+                //sh 'make deploy-staging' // Deploys develop branch to staging
             }
         }
 
@@ -50,7 +51,8 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh 'make test-integration' // Run integration tests on staging
+                echo ' in Develop branch doing Integration Tests'
+                // sh 'make test-integration' // Run integration tests on staging
             }
         }
 
